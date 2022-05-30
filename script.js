@@ -32,5 +32,19 @@ function plusMinus(arr) {
     numOfNeg = (numOfNeg / arrayLen).toFixed(6);
     numOfZero = (numOfZero / arrayLen).toFixed(6);
 
-    console.log(`${numOfPos}\n${numOfNeg}\n${numOfZero}`);
+    return `${numOfPos}\n${numOfNeg}\n${numOfZero}`;
+}
+
+// staircase
+
+function staircase(n) {
+    let stairs = [];
+    
+    for (let i = 1; i <= n; i++) {
+        let stair = " ".repeat(n - i) + "#".repeat(i);
+        stairs.push(stair);
+    }
+
+    let stairsCombined = stairs.join("\n");
+    return stairsCombined;
 }
