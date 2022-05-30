@@ -48,3 +48,25 @@ function staircase(n) {
     let stairsCombined = stairs.join("\n");
     return stairsCombined;
 }
+
+// miniMaxSum
+
+function miniMaxSum(arr) {
+    let total = 0;
+    
+    const sortedArray = arr.sort(function(a, b) {
+        return a - b;
+    });
+
+    for (let i = 0; i < sortedArray.length; i++) {
+        total += sortedArray[i];
+    }
+    
+    let min = total - sortedArray[sortedArray.length - 1];
+    let max = total - sortedArray[0];
+
+    return `${min} ${max}`;
+
+}
+
+console.log(miniMaxSum([1, 3, 5, 7, 9]));
