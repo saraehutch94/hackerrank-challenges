@@ -69,4 +69,21 @@ function miniMaxSum(arr) {
 
 }
 
-console.log(miniMaxSum([1, 3, 5, 7, 9]));
+// console.log(miniMaxSum([1, 3, 5, 7, 9]));
+
+// birthdayCakeCandles
+
+function birthdayCakeCandles(candles) {
+    let count = 0;
+
+    const largestVal = Math.max(...candles);
+
+    candles.forEach(element => {
+        element == largestVal ? count += 1 : null;
+    });
+
+    return count;
+
+};
+
+// console.log(birthdayCakeCandles([4, 7, 20, 4, 9, 20, 6, 8, 20, 5, 8, 1]));
