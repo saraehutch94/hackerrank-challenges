@@ -133,3 +133,25 @@ function gradingStudents(grades) {
 };
 
 // console.log(gradingStudents([78, 67, 38, 33]));
+
+// countApplesAndOranges
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+    let appleCount = 0;
+    let orangeCount = 0;
+
+    apples.forEach(apple => {
+        let sum = a + apple;
+        if (sum >= s && sum <= t) appleCount += 1;
+    });
+
+    oranges.forEach(orange => {
+        let sum = b + orange;
+        if (sum >= s && sum <= t) orangeCount += 1;
+    });
+
+    return `${appleCount}\n${orangeCount}`;
+
+};
+
+console.log(countApplesAndOranges(7, 10, 5, 15, [-2, 2, 1], [5, -6]));
