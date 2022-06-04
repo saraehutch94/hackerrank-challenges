@@ -142,12 +142,12 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 
     apples.forEach(apple => {
         let sum = a + apple;
-        if (sum >= s && sum <= t) appleCount += 1;
+        if (sum >= s && sum <= t) appleCount++;
     });
 
     oranges.forEach(orange => {
         let sum = b + orange;
-        if (sum >= s && sum <= t) orangeCount += 1;
+        if (sum >= s && sum <= t) orangeCount++;
     });
 
     return `${appleCount}\n${orangeCount}`;
