@@ -79,7 +79,7 @@ function birthdayCakeCandles(candles) {
     const largestVal = Math.max(...candles);
 
     candles.forEach(element => {
-        element == largestVal ? count += 1 : null;
+        element == largestVal ? count++ : null;
     });
 
     return count;
@@ -154,4 +154,4 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 
 };
 
-console.log(countApplesAndOranges(7, 10, 5, 15, [-2, 2, 1], [5, -6]));
+// console.log(countApplesAndOranges(7, 10, 5, 15, [-2, 2, 1], [5, -6]));
