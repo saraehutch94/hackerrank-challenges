@@ -20,11 +20,11 @@ function plusMinus(arr) {
 
     for (let i = 0; i < arr.length; i++) {
         if (arr[i] == 0) {
-            numOfZero += 1;
+            numOfZero++;
         } else if (arr[i] > 0) {
-            numOfPos += 1;
+            numOfPos++;
         } else {
-            numOfNeg += 1;
+            numOfNeg++;
         }
     }
 
