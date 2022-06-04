@@ -100,7 +100,7 @@ function timeConversion(s) {
     
     hour = hour.toString();
     if (hour.length == 1) hour = "0" + hour;
-    
+
     const newSeconds = splitString[2].replace(regex, "");
     splitString.splice(0, 1, hour);
     splitString.splice(2, 1, newSeconds);
@@ -109,4 +109,32 @@ function timeConversion(s) {
 
 };
 
-console.log(timeConversion("12:01:00AM"));
+// console.log(timeConversion("12:01:00AM"));
+
+// gradingStudents
+
+function gradingStudents(grades) {
+
+    const gradeArray = [];
+
+    grades.forEach(grade => {
+
+        if (grade < 38) {
+            gradeArray.push(grade);
+            return;
+        }
+
+        const multOfFive = Math.ceil(grade / 5) * 5;
+        const difference = multOfFive - grade;
+
+        if (difference < 3) {
+            gradeArray.push(multOfFive);
+        } else {
+            gradeArray.push(grade);
+        }
+    });
+
+    return gradeArray;
+};
+
+// console.log(gradingStudents([57, 73, 38, 98]));
