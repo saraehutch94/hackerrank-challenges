@@ -87,3 +87,26 @@ function birthdayCakeCandles(candles) {
 };
 
 // console.log(birthdayCakeCandles([4, 7, 20, 4, 9, 20, 6, 8, 20, 5, 8, 1]));
+
+// timeConversion
+
+function timeConversion(s) {
+    let splitString = s.split(":");
+    let hour = parseInt(splitString[0]);
+    const regex = /[a-zA-Z]+/;
+
+    splitString[2].includes("PM") && hour != 12 ? hour += 12 : null;
+    splitString[2].includes("AM") && hour == 12 ? hour -= 12 : null;
+    
+    hour = hour.toString();
+    hour.length == 1 ? hour = "0" + hour : null;
+
+    const newSeconds = splitString[2].replace(regex, "");
+    splitString.splice(0, 1, hour);
+    splitString.splice(2, 1, newSeconds);
+    let newString = splitString.join(":");
+    return newString;
+
+};
+
+console.log(timeConversion("12:01:00AM"));
