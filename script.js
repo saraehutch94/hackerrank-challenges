@@ -95,12 +95,12 @@ function timeConversion(s) {
     let hour = parseInt(splitString[0]);
     const regex = /[a-zA-Z]+/;
 
-    splitString[2].includes("PM") && hour != 12 ? hour += 12 : null;
-    splitString[2].includes("AM") && hour == 12 ? hour -= 12 : null;
+    if (splitString[2].includes("PM") && hour != 12) hour += 12;
+    if (splitString[2].includes("AM") && hour == 12) hour -= 12;
     
     hour = hour.toString();
-    hour.length == 1 ? hour = "0" + hour : null;
-
+    if (hour.length == 1) hour = "0" + hour;
+    
     const newSeconds = splitString[2].replace(regex, "");
     splitString.splice(0, 1, hour);
     splitString.splice(2, 1, newSeconds);
