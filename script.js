@@ -119,15 +119,10 @@ function gradingStudents(grades) {
 
     grades.forEach(grade => {
 
-        if (grade < 38) {
-            gradeArray.push(grade);
-            return;
-        }
-
         const multOfFive = Math.ceil(grade / 5) * 5;
         const difference = multOfFive - grade;
 
-        if (difference < 3) {
+        if (difference < 3 && grade >= 38) {
             gradeArray.push(multOfFive);
         } else {
             gradeArray.push(grade);
@@ -137,4 +132,4 @@ function gradingStudents(grades) {
     return gradeArray;
 };
 
-// console.log(gradingStudents([57, 73, 38, 98]));
+// console.log(gradingStudents([78, 67, 38, 33]));
