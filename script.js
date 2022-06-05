@@ -174,7 +174,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
     // if j is a positive number, return "YES" (cross paths in same amount of jumps)
 
 function kangaroo(x1, v1, x2, v2) {
-    let jumps = (x1 - x2) / (v2 - v1);
+    const jumps = (x1 - x2) / (v2 - v1);
 
     if (jumps < 0 || jumps % 1 != 0) return "NO";
 
