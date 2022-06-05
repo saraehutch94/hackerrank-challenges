@@ -155,3 +155,30 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 };
 
 // console.log(countApplesAndOranges(7, 10, 5, 15, [-2, 2, 1], [5, -6]));
+
+// kangaroo
+
+    // explanation:
+    // to find the amount of jumps for each kangaroo, we need to use this equation:
+    // p = jm + s
+    // p = position of kangaroo, j = amount of jumps, m = meters per jump, s = starting point
+    // we want to see where these two kangaroos meet (if they do meet) so we want to take both equations
+    // (one for each kangaroo) and make them equal to each other (we are comparing their positions) to determine what the amount of jumps are
+    // jm + s = jm + s => jv1 + x1 = jv2 + x2
+    // we need to move j to one side of the equation to solve for it:
+    // x1 = jv2 + x2 - jv1
+    // x1 - x2 = jv2 - jv1
+    // x1 - x2 = j(v2 - v1)
+    // (x1 - x2)/(v2 - v1) = j
+    // if j is a negative number or a decimal, return "NO" (negative: v2 > v1 => kangaroo #2 is in lead the whole time and kangaroo #1 can't catch up; decimal: cross paths at decimal number points)
+    // if j is a positive number, return "YES" (cross paths in same amount of jumps)
+
+function kangaroo(x1, v1, x2, v2) {
+    let jumps = (x1 - x2) / (v2 - v1);
+
+    if (jumps < 0 || jumps % 1 != 0) return "NO";
+
+    return "YES";
+};
+
+console.log(kangaroo(0, 2, 5, 3));
