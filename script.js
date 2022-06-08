@@ -183,3 +183,33 @@ function kangaroo(x1, v1, x2, v2) {
 
 // console.log(kangaroo(0, 3, 4, 2));
 // console.log(kangaroo(0, 2, 5, 3));
+
+// getTotalX
+
+function getTotalX(a, b) {
+
+    let count = 0;
+    
+    function aHelperFunction(rangeNum) {
+        for (let i = 0; i < a.length; i++) {
+            if (rangeNum % a[i] != 0) return;
+        }
+        bHelperFunction(rangeNum);
+    };
+
+    function bHelperFunction(rangeNum) {
+        for (let i = 0; i < b.length; i++) {
+            if (b[i] % rangeNum != 0) return;
+        }
+        count++
+    };
+
+    for (let i = a[a.length - 1]; i <= b[0]; i++) {
+        aHelperFunction(i);
+    }
+
+    return count;
+
+};
+
+console.log(getTotal([2, 4], [16, 32, 96]));
