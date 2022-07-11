@@ -107,7 +107,7 @@ function timeConversion(s) {
     let newString = splitString.join(":");
     return newString;
 
-};
+}
 
 // console.log(timeConversion("12:01:00AM"));
 
@@ -130,7 +130,7 @@ function gradingStudents(grades) {
     });
 
     return gradeArray;
-};
+}
 
 // console.log(gradingStudents([78, 67, 38, 33]));
 
@@ -152,7 +152,7 @@ function countApplesAndOranges(s, t, a, b, apples, oranges) {
 
     return `${appleCount}\n${orangeCount}`;
 
-};
+}
 
 // console.log(countApplesAndOranges(7, 10, 5, 15, [-2, 2, 1], [5, -6]));
 
@@ -179,7 +179,7 @@ function kangaroo(x1, v1, x2, v2) {
     if (jumps < 0 || jumps % 1 != 0) return "NO";
 
     return "YES";
-};
+}
 
 // console.log(kangaroo(0, 3, 4, 2));
 // console.log(kangaroo(0, 2, 5, 3));
@@ -195,14 +195,14 @@ function getTotalX(a, b) {
             if (rangeNum % a[i] != 0) return;
         }
         bHelperFunction(rangeNum);
-    };
+    }
 
     function bHelperFunction(rangeNum) {
         for (let i = 0; i < b.length; i++) {
             if (b[i] % rangeNum != 0) return;
         }
         count++
-    };
+    }
 
     for (let i = a[a.length - 1]; i <= b[0]; i++) {
         aHelperFunction(i);
@@ -210,6 +210,36 @@ function getTotalX(a, b) {
 
     return count;
 
-};
+}
 
-console.log(getTotal([2, 4], [16, 32, 96]));
+// console.log(getTotalX([2, 4], [16, 32, 96]));
+
+// breakingRecords
+
+function breakingRecords (arrOfScores) {
+
+    if (arrOfScores.length === 0) return null;
+
+    let min = arrOfScores[0];
+    let max = arrOfScores[0];
+    let minCount = 0;
+    let maxCount = 0;
+
+    for (let i = 1; i < arrOfScores.length; i++) {
+        if (arrOfScores[i] < min) {
+            min = arrOfScores[i];
+            minCount++;
+        } else if (arrOfScores[i] > max) {
+            max = arrOfScores[i];
+            maxCount++;
+        }
+    }
+
+    return [maxCount, minCount];
+
+}
+
+// console.log(breakingRecords([1, 10]));
+// console.log(breakingRecords([12, 24, 10, 24])); // --> [1, 1]
+// console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1])); // --> [2, 4]
+// console.log(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42])); // --> [4, 0]
