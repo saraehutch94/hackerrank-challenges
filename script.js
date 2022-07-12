@@ -266,4 +266,6 @@ function birthday(s, d, m) {
     return numOfDivides;
 }
 
-console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2));
+// console.log(birthday([1, 2, 1, 3, 2], 3, 2))
+// console.log(birthday([2, 2, 1, 3, 2], 4, 2)); // --> 2
+// console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2)); // --> 0
