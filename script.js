@@ -218,6 +218,7 @@ function getTotalX(a, b) {
 
 function breakingRecords (arrOfScores) {
 
+    // if (arrOfScores.length <= 1) return arrOfScores; ==> adding this line of code was not working for [1, 10] as the input score array (HackerRank)
     if (arrOfScores.length === 0) return null;
 
     let min = arrOfScores[0];
@@ -243,3 +244,26 @@ function breakingRecords (arrOfScores) {
 // console.log(breakingRecords([12, 24, 10, 24])); // --> [1, 1]
 // console.log(breakingRecords([10, 5, 20, 20, 4, 5, 2, 25, 1])); // --> [2, 4]
 // console.log(breakingRecords([3, 4, 21, 36, 10, 28, 35, 5, 24, 42])); // --> [4, 0]
+
+// birthday
+
+function birthday(s, d, m) {
+
+    let numOfDivides = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        let piece = s.slice(i, i + m);
+        if (piece.length === m) {
+            let sum = piece.reduce(function (prevVal, currVal) {
+                return prevVal + currVal;
+            });
+            if (sum === d) {
+                numOfDivides++;
+            }
+        }
+    }
+
+    return numOfDivides;
+}
+
+console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2));
