@@ -269,3 +269,27 @@ function birthday(s, d, m) {
 // console.log(birthday([1, 2, 1, 3, 2], 3, 2))
 // console.log(birthday([2, 2, 1, 3, 2], 4, 2)); // --> 2
 // console.log(birthday([1, 1, 1, 1, 1, 1], 3, 2)); // --> 0
+
+// divisibleSumPairs
+
+function divisibleSumPairs(n, k, ar) {
+    
+    let count = 0;
+
+    for (let i = 0; i < ar.length - 1; i++) {
+        countPairs(ar[i], ar.slice(i + 1));
+    }
+
+    function countPairs(iteration, slicedAr) {
+        for (let i = 0; i < slicedAr.length; i++) {
+            let sum = iteration + slicedAr[i];
+            if (sum % k === 0) {
+                count ++;
+            }
+        }
+    }
+
+    return count;
+}
+
+console.log(divisibleSumPairs(6, 5, [1, 2, 3, 4, 5, 6]));
