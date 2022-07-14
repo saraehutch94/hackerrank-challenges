@@ -284,7 +284,7 @@ function divisibleSumPairs(n, k, ar) {
         for (let i = 0; i < slicedAr.length; i++) {
             let sum = iteration + slicedAr[i];
             if (sum % k === 0) {
-                count ++;
+                count++;
             }
         }
     }
@@ -292,4 +292,4 @@ function divisibleSumPairs(n, k, ar) {
     return count;
 }
 
-console.log(divisibleSumPairs(6, 5, [1, 2, 3, 4, 5, 6]));
+// console.log(divisibleSumPairs(6, 5, [1, 2, 3, 4, 5, 6]));
