@@ -293,3 +293,31 @@ function divisibleSumPairs(n, k, ar) {
 }
 
 // console.log(divisibleSumPairs(6, 5, [1, 2, 3, 4, 5, 6]));
+
+// migratoryBirds
+
+function migratoryBirds(arr) {
+
+    const birdSightings = {};
+
+    arr.forEach(id => {
+        if (!birdSightings[id]) {
+            birdSightings[id] = 1;
+        } else {
+            birdSightings[id]++;
+        }
+    });
+
+    const maxValue = Math.max(...Object.values(birdSightings));
+
+    const highestValueKeys = Object.keys(birdSightings).filter(function(key) {
+        return birdSightings[key] === maxValue;
+    }).sort();
+
+    return parseInt(highestValueKeys[0]);
+
+}
+
+console.log(migratoryBirds([1, 1, 2, 2, 3])); // --> 1
+console.log(migratoryBirds([1, 4, 4, 4, 5, 3])); // --> 4
+console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])); // --> 3
