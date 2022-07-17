@@ -350,3 +350,26 @@ function dayOfProgrammer(year) {
 // console.log(dayOfProgrammer(2016)); // ==> 12.09.2016
 // console.log(dayOfProgrammer(2017)); // ==> 13.09.2017
 // console.log(dayOfProgrammer(1800)); // ==> 12.09.1800
+
+// bonAppetit
+
+function bonAppetit(bill, k, b) {
+    
+    bill.splice(k, 1);
+
+    const billForAnna = bill.reduce(function(a, b) {
+        return a + b;
+    }) / 2;
+
+    if (billForAnna < b) {
+        console.log(b - billForAnna);
+    } else if (billForAnna === b) {
+        console.log('Bon Appetit');
+    } else {
+        console.log(`Anna owes ${billForAnna - b}`);
+    }
+
+}
+
+// console.log(bonAppetit([3, 10, 2, 9], 1, 12)); // ==> 5
+// console.log(bonAppetit([3, 10, 2, 9], 1, 7)); // ==> Bon Appetit
