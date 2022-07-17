@@ -321,3 +321,33 @@ function migratoryBirds(arr) {
 console.log(migratoryBirds([1, 1, 2, 2, 3])); // --> 1
 console.log(migratoryBirds([1, 4, 4, 4, 5, 3])); // --> 4
 console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])); // --> 3
+
+// dayOfProgrammer
+
+function dayOfProgrammer(year) {
+
+    /*
+    256 ==> day of the year we are looking for
+    243 (leapYearDay) ==> amount of days in leap year (January - August)
+    244 (regYearDay) ==> amount of days in regular year (January - August)
+    231 (gapYearDay) ==> amount of days in gap year (January - August w/ 13 days
+    missing from February: jump from January 31st to February 14th)
+    */
+
+    const leapYearDay = 256 - 244;
+    const regYearDay = 256 - 243;
+    const gapYearDay = 256 - 230;
+
+
+    if ((year <= 1917 && year % 4 === 0) || (year >= 1919 && year <= 2700) && (year % 400 === 0 || year % 4 === 0 && year % 100 != 0)) {
+        return `${leapYearDay}.09.${year}`;
+    } else if (year === 1918) {
+        return `${gapYearDay}.09.${year}`;
+    } else {
+        return `${regYearDay}.09.${year}`;
+    }
+
+}
+// console.log(dayOfProgrammer(2016)); // ==> 12.09.2016
+// console.log(dayOfProgrammer(2017)); // ==> 13.09.2017
+// console.log(dayOfProgrammer(1800)); // ==> 12.09.1800
