@@ -330,14 +330,13 @@ function dayOfProgrammer(year) {
     256 ==> day of the year we are looking for
     243 (leapYearDay) ==> amount of days in leap year (January - August)
     244 (regYearDay) ==> amount of days in regular year (January - August)
-    231 (gapYearDay) ==> amount of days in gap year (January - August w/ 13 days
+    230 (gapYearDay) ==> amount of days in gap year/non-leap year (January - August w/ 13 days
     missing from February: jump from January 31st to February 14th)
     */
 
     const leapYearDay = 256 - 244;
     const regYearDay = 256 - 243;
     const gapYearDay = 256 - 230;
-
 
     if ((year <= 1917 && year % 4 === 0) || (year >= 1919 && year <= 2700) && (year % 400 === 0 || year % 4 === 0 && year % 100 != 0)) {
         return `${leapYearDay}.09.${year}`;
