@@ -318,9 +318,9 @@ function migratoryBirds(arr) {
 
 }
 
-console.log(migratoryBirds([1, 1, 2, 2, 3])); // --> 1
-console.log(migratoryBirds([1, 4, 4, 4, 5, 3])); // --> 4
-console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])); // --> 3
+// console.log(migratoryBirds([1, 1, 2, 2, 3])); // --> 1
+// console.log(migratoryBirds([1, 4, 4, 4, 5, 3])); // --> 4
+// console.log(migratoryBirds([1, 2, 3, 4, 5, 4, 3, 2, 1, 3, 4])); // --> 3
 
 // dayOfProgrammer
 
@@ -373,3 +373,54 @@ function bonAppetit(bill, k, b) {
 
 // console.log(bonAppetit([3, 10, 2, 9], 1, 12)); // ==> 5
 // console.log(bonAppetit([3, 10, 2, 9], 1, 7)); // ==> Bon Appetit
+
+//shift
+
+function shift(elements) {
+    let t = -1;
+    let count = 0;
+    const copyOfElements = [...elements];
+
+    const reverseSortedArr = copyOfElements.sort(function (a,b) {
+        return b - a;
+    });
+
+    while (count < elements.length) {
+
+        if (elements.toString() === reverseSortedArr.toString()) {
+            t = count;
+            return t;
+        } else {
+            let lastEl = elements.pop();
+            elements.unshift(lastEl);
+            count++;
+        }
+    }
+
+    return t;
+
+  }
+
+// console.log(shift([3, 2, 1, 7, 6, 5, 4]))
+
+// sockMerchant
+
+function sockMerchant(n, ar) {
+    
+    const sockPairs = {};
+    let count = 0;
+
+    ar.forEach(sock => {
+        if (!sockPairs[sock]) {
+            sockPairs[sock] = 1;
+        } else {
+            delete sockPairs[sock];
+            count++;
+        }
+    });
+
+    return count;
+}
+
+// console.log(sockMerchant(0, [1, 2, 1, 2, 1, 3, 2])); // ==> 2
+// console.log(sockMerchant(0, [10, 20, 20, 10, 10, 30, 50, 10, 20])); // ==> 3
