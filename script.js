@@ -424,3 +424,32 @@ function sockMerchant(n, ar) {
 
 // console.log(sockMerchant(0, [1, 2, 1, 2, 1, 3, 2])); // ==> 2
 // console.log(sockMerchant(0, [10, 20, 20, 10, 10, 30, 50, 10, 20])); // ==> 3
+
+// pageCount
+
+function pageCount(n, p) {
+    let bookArray = [...Array(n + 1).keys()];
+    if (bookArray.length % 2 != 0) bookArray.push(0);
+    let count = 0;
+    let splicedArr;
+
+    if (p - bookArray[0] <= n - p) {
+        splicedArr = bookArray.splice(0, p + 1);
+    } else {
+        splicedArr = bookArray.splice(p).reverse();
+    }
+
+    while (splicedArr.length > 1) {
+        let splice = splicedArr.splice(0, 2);
+        if (splice.includes(p)) {
+            return count;
+        } else {
+            count++
+        }
+    }
+
+    return count;
+
+}
+
+// console.log(pageCount(6, 5));
