@@ -475,4 +475,24 @@ function countingValleys(steps, path) {
     return valleys;
 }
 
-console.log(countingValleys(8, "DDDUUUDDDUUU"));
+// console.log(countingValleys(8, "DDDUUUDDDUUU")); // ==> 2
+
+// getMoneySpent
+
+function getMoneySpent(keyboards, drives, b) {
+
+    let highestPrice = -1;
+
+    for (let i = 0; i < keyboards.length; i++) {
+        for (let j = 0; j < drives.length; j++) {
+            let sum = keyboards[i] + drives[j];
+            if (sum > highestPrice && sum <= b) highestPrice = sum;
+        }
+    }
+
+    return highestPrice;
+}
+
+// console.log(getMoneySpent([40, 50, 60], [5, 8, 12], 60)); ==> 58
+// console.log(getMoneySpent([3, 1], [5, 2, 8], 10)); ==> 9
+// console.log(getMoneySpent([4], [5], 5)); ==> -1
