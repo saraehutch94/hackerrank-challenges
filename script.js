@@ -461,7 +461,7 @@ function countingValleys(steps, path) {
     let route = 0;
 
     for (let i = 0; i < path.length; i++) {
-        let prevRoute = route;
+        let prevStep = route;
         if (path[i] === "D") {
             route--;
         } else {
@@ -469,7 +469,7 @@ function countingValleys(steps, path) {
         }
 
         // when route equals sea level (0)
-        if (route === seaLevel && prevRoute < 0) valleys++;
+        if (route === seaLevel && prevStep < 0) valleys++;
     }
 
     return valleys;
