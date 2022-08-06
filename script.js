@@ -469,7 +469,7 @@ function countingValleys(steps, path) {
         }
 
         // when route equals sea level (0)
-        if (route === seaLevel && prevStep < 0) valleys++;
+        if (route === 0 && prevStep < 0) valleys++;
     }
 
     return valleys;
