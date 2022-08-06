@@ -453,3 +453,26 @@ function pageCount(n, p) {
 }
 
 // console.log(pageCount(6, 5));
+
+// countingValleys
+
+function countingValleys(steps, path) {
+    let valleys = 0;
+    let route = 0;
+
+    for (let i = 0; i < path.length; i++) {
+        let prevRoute = route;
+        if (path[i] === "D") {
+            route--;
+        } else {
+            route++;
+        }
+
+        // when route equals sea level (0)
+        if (route === seaLevel && prevRoute < 0) valleys++;
+    }
+
+    return valleys;
+}
+
+console.log(countingValleys(8, "DDDUUUDDDUUU"));
