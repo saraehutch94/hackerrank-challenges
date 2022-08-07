@@ -496,3 +496,22 @@ function getMoneySpent(keyboards, drives, b) {
 // console.log(getMoneySpent([40, 50, 60], [5, 8, 12], 60)); ==> 58
 // console.log(getMoneySpent([3, 1], [5, 2, 8], 10)); ==> 9
 // console.log(getMoneySpent([4], [5], 5)); ==> -1
+
+// catAndMouse
+
+function catAndMouse(x, y, z) {
+    const catADiff = Math.abs(x - z);
+    const catBDiff = Math.abs(y - z);
+
+    if (catADiff < catBDiff) {
+        return "Cat A";
+    } else if (catADiff > catBDiff) {
+        return "Cat B";
+    } else {
+        return "Mouse C";
+    }
+}
+
+// console.log(catAndMouse(2, 5, 4)); // ==> Cat B
+// console.log(catAndMouse(1, 2, 3)); // ==> Cat B
+// console.log(catAndMouse(1, 3, 2)); // ==> Mouse C
