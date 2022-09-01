@@ -606,4 +606,25 @@ function hurdleRace(k, height) {
     return difference;
 }
 
-console.log(hurdleRace(7, [2, 5, 4, 5, 2]));
+// console.log(hurdleRace(7, [2, 5, 4, 5, 2]));
+
+// designerPdfViewer
+
+function designerPdfViewer(h, word) {
+
+    const alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p",
+    "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    let highestVal = 0;
+
+    for (let i = 0; i < word.length; i++) {
+        let indexOfLetter = alphabet.indexOf(word[i]);
+        if (h[indexOfLetter] > highestVal) highestVal = h[indexOfLetter];
+    }
+
+    return highestVal * word.length;
+
+}
+
+// console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7], "zaba")); // ==> 28
+// console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], "abc")); // ==> 9
+// console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 1, 1, 5, 5, 1, 5, 2, 5, 5, 5, 5, 5, 5], "torn")); // ==> 8
