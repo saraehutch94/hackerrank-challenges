@@ -515,3 +515,76 @@ function catAndMouse(x, y, z) {
 // console.log(catAndMouse(2, 5, 4)); // ==> Cat B
 // console.log(catAndMouse(1, 2, 3)); // ==> Cat B
 // console.log(catAndMouse(1, 3, 2)); // ==> Mouse C
+
+// formingMagicSquare
+
+// magic squares that are 3x3 always have 5 in the middle
+// they also always have a magic constant of 15 (each row, column and diagonal equals 15):
+// 1 - 9 added together (1 + 2 + 3...) equals 45
+// the horizontal rows will include all 9 numbers (1-9 inclusively)
+// each horizontal row has to equal 15 (45 / 3 = 15)
+// since 5 is always in the middle, we need to have numbers around 5 that will equal 10 (pairs: 1 + 9, 2 + 8, 3 + 7, 4 + 6)
+
+function formingMagicSquare(s) {
+
+}
+
+// pickingNumbers
+
+function pickingNumbers(a) {
+    
+}
+
+// savePathsPerSession ==> ES5
+
+var pathName = window.location.pathname;
+var sessionLen = Object.keys(sessionStorage).length;
+
+function savePathsPerSession(path) {
+    if (!Object.values(sessionStorage).includes(path)) {
+        sessionStorage.setItem(sessionLen, path);
+    }
+
+    var arrOfPaths = Object.values(sessionStorage).filter(function(path) {
+        return path.includes("/");
+    });
+
+    return arrOfPaths;
+}
+
+// console.log(savePathsPerSession(pathName));
+
+// pickingNumbers
+function pickingNumbers(a) {
+
+    let longestArrLen = 0;
+    const sortedArr = a.sort(function(a,b) {
+        return a - b;
+    });
+
+    function findLongestArr(arr) {
+        const subArr = [arr.shift()];
+
+        while(arr.length >= 1) {
+            for (let i = 0; i < arr.length; i++) {
+                if (Math.abs(subArr[0] - arr[i]) <= 1) {
+                    subArr.push(arr[i]);
+                }
+            }
+
+            if (subArr.length > longestArrLen) longestArrLen = subArr.length;
+            arr.splice(0, subArr.length - 1);
+            findLongestArr(arr);
+        }
+    }
+
+    findLongestArr(sortedArr);
+    return longestArrLen;
+}
+
+// console.log(pickingNumbers([4, 6, 5, 3, 3, 1])) // ==> 3
+// console.log(pickingNumbers([1, 2, 2, 3, 1, 2])) // ==> 5
+// console.log(pickingNumbers([1, 1, 2, 2, 4, 4, 5, 5, 5])) // ==> 5
+// console.log(pickingNumbers([9, 6, 13, 16, 5, 18, 4, 10, 3, 19, 4, 5, 8, 1, 13, 10, 20, 17, 15, 10, 6, 10, 13, 20, 18, 17, 7, 10, 6, 5, 16, 18, 13, 20, 19, 7, 16, 13, 20, 17, 4, 17, 8, 19, 12, 7, 17, 1, 18, 3, 16, 4, 5, 3, 15, 17, 6, 17, 14, 11, 11, 7, 11, 6, 15, 15, 12, 6, 17, 19, 8, 6, 13, 9, 10, 19, 14, 18, 7, 9, 11, 16, 11, 20, 4, 20, 10, 7, 8, 4, 2, 12, 11, 8, 12, 13, 19, 8, 8, 5])); // ==> 13
+// console.log(pickingNumbers([14, 18, 17, 10, 9, 20, 4, 13, 19, 19, 8, 15, 15, 17, 6, 5, 15, 12, 18, 2, 18, 7, 20, 8, 2, 8, 11, 2, 16, 2, 12, 9, 3, 6, 9, 9, 13, 7, 4, 6, 19, 7, 2, 4, 3, 4, 14, 3, 4, 9, 17, 9, 4, 20, 10, 16, 12, 1, 16, 4, 15, 15, 9, 13, 6, 3, 8, 4, 7, 14, 16, 18, 20, 11, 20, 14, 20, 12, 15, 4, 5, 10, 10, 20, 11, 18, 5, 20, 13, 4, 18, 1, 14, 3, 20, 19, 14, 2, 5, 13])) // ==> 15
+
