@@ -628,3 +628,23 @@ function designerPdfViewer(h, word) {
 // console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 7], "zaba")); // ==> 28
 // console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5], "abc")); // ==> 9
 // console.log(designerPdfViewer([1, 3, 1, 3, 1, 4, 1, 3, 2, 5, 5, 5, 5, 1, 1, 5, 5, 1, 5, 2, 5, 5, 5, 5, 5, 5], "torn")); // ==> 8
+
+// utopianTree
+
+function utopianTree(n) {
+    let height = 1;
+    if (n < 1) return height;
+
+    for (let i = 1; i <= n; i++) {
+        if (i % 2 === 0) {
+            height++;
+        } else {
+            height = height * 2;
+        }
+    }
+
+    return height;
+}
+
+console.log(utopianTree(4));
+console.log(utopianTree(5));
